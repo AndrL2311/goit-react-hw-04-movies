@@ -2,11 +2,12 @@ import { Switch, Route } from "react-router-dom";
 import AppBar from "./components/AppBar/AppBar";
 import HomePage from "./vievs/HomePage";
 import MoviesPage from "./vievs/MoviesPage";
-import fetchTrending from "./service/apiService";
+import MovieDetailsPage from "./vievs/MovieDetailsPage";
+// import fetchTrending from "./service/apiService";
 import "./App.css";
 
 function App() {
-  console.log(fetchTrending(1));
+  // console.log(fetchTrending(1));
 
   return (
     <div className="App">
@@ -15,7 +16,10 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/movies">
+        <Route path="/movies/:movieId">
+          <MovieDetailsPage />
+        </Route>
+        <Route path="/movies" exact>
           <MoviesPage />
         </Route>
         <Route>

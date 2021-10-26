@@ -27,11 +27,23 @@ function fetchTrending(page) {
       return res.results;
     });
 }
-// поиск кинофильма по ключевому слову на странице фильмов
+
 // запрос полной информации о фильме для страницы кинофильма
+function fetchMovieDetails(movieId) {
+  return fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+    .then((r) => r.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+}
+
+// поиск кинофильма по ключевому слову на странице фильмов
+
 // запрос информации о актёрском составе для страницы кинофильма
 // запрос обзоров для страницы кинофильма
-export default fetchTrending;
+const apiService = { fetchTrending, fetchMovieDetails };
+export default apiService;
 
 // export default class ApiService {
 //   constructor() {
