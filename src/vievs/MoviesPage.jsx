@@ -1,25 +1,31 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch, useHistory, useLocation } from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 import apiService from "../service/apiService";
 
 function MoviesPage() {
-  const [movieName, setMovieName] = useState("");
+  // const [movieName, setMovieName] = useState("");
   const [movies, setMovies] = useState(null);
   const { url } = useRouteMatch();
+  const history = useHistory();
+  const location = useLocation();
+  const queryName = new URLSearchParams(location.search).get("query");
 
   useEffect(() => {
-    if (movieName === "") {
+    if (queryName === null) {
       return;
     }
-    apiService.fetchSearchMovie(1, movieName).then(setMovies);
-  }, [movieName]);
+    apiService.fetchSearchMovie(1, queryName).then(setMovies);
+  }, [queryName]);
 
   const formSubmitHandler = (imageName) => {
-    setMovieName(imageName);
+    // setMovieName(imageName);
+    history.push({ ...location, search: `query=${imageName}` });
   };
   console.log(url);
   console.log(movies);
+  console.log(queryName);
+
   return (
     <div>
       <Searchbar onSubmit={formSubmitHandler} />
