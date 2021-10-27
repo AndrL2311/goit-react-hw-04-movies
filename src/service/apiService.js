@@ -38,11 +38,36 @@ function fetchMovieDetails(movieId) {
     .catch((error) => console.log(error));
 }
 
+// запрос информации о актёрском составе для страницы кинофильма
+function fetchMovieCredits(movieId) {
+  return fetch(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  )
+    .then((r) => r.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+}
+// запрос обзоров для страницы кинофильма
+function fetchMovieReviews(movieId) {
+  return fetch(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
+  )
+    .then((r) => r.json())
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => console.log(error));
+}
 // поиск кинофильма по ключевому слову на странице фильмов
 
-// запрос информации о актёрском составе для страницы кинофильма
-// запрос обзоров для страницы кинофильма
-const apiService = { fetchTrending, fetchMovieDetails };
+const apiService = {
+  fetchTrending,
+  fetchMovieDetails,
+  fetchMovieCredits,
+  fetchMovieReviews,
+};
 export default apiService;
 
 // export default class ApiService {
