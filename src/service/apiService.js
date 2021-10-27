@@ -63,7 +63,7 @@ function fetchMovieReviews(movieId) {
 // поиск кинофильма по ключевому слову на странице фильмов
 function fetchSearchMovie(page, searchQuery) {
   // console.log('page', page);
-  const url = `${BASE_URL}/search/movie/?api_key=${API_KEY}&page=${page}&query=${searchQuery}`;
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&page=${page}&query=${searchQuery}`;
   return fetch(url)
     .then((res) => {
       // console.log(res);
