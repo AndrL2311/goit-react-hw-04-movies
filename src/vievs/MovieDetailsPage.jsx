@@ -3,6 +3,7 @@ import { NavLink, useParams, useRouteMatch, Route } from "react-router-dom";
 import apiService from "../service/apiService";
 import Cast from "../components/Cast/Cast";
 import Reviews from "../components/Reviews/Reviews";
+import GoBackButton from "../components/GoBackButton/GoBackButton";
 
 import s from "./MovieDetailsPage.module.css";
 
@@ -26,6 +27,7 @@ function MovieDetailsPage() {
 
   return (
     <article>
+      <GoBackButton />
       <div className={s.movieCard}>
         {movie && (
           <>
