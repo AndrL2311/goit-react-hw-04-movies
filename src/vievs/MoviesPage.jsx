@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch, useHistory, useLocation } from "react-router-dom";
+import { useRouteMatch, useHistory, useLocation } from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 import apiService from "../service/apiService";
+import MovieItems from "../components/MovieItem/MovieItem";
+// import s from './MoviesPage.module.css';
 
 function MoviesPage() {
   // const [movieName, setMovieName] = useState("");
@@ -22,21 +24,14 @@ function MoviesPage() {
     // setMovieName(imageName);
     history.push({ ...location, search: `query=${imageName}` });
   };
-  console.log(url);
-  console.log(movies);
-  console.log(queryName);
+  // console.log(url);
+  // console.log(movies);
+  // console.log(queryName);
 
   return (
     <div>
       <Searchbar onSubmit={formSubmitHandler} />
-      <ul>
-        {movies &&
-          movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={`${url}/${movie.id}`}>{movie.title}</Link>
-            </li>
-          ))}
-      </ul>
+      <MovieItems movies={movies} linkUrl={`${url}/`} />
     </div>
   );
 }

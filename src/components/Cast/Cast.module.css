@@ -1,0 +1,41 @@
+.item {
+  width: 200px;
+  display: block;
+  padding: 5px, 5px, 5px, 5px;
+  margin-bottom: 20px;
+  background-color: rgb(217, 252, 252);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.image {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boxInfoActor {
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.nameActor {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.value {
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 500;
+}

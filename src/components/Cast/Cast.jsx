@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 // import { Link, useRouteMatch } from "react-router-dom";
 import apiService from "../../service/apiService";
+import s from "./Cast.module.css";
+
 function Cast({ movieId }) {
   const [cast, setCast] = useState(null);
 
@@ -27,9 +29,13 @@ function Cast({ movieId }) {
           }
 
           return (
-            <li key={actor.id}>
-              <img src={actorImgUrl} alt={actor.name} />
-              <p>{actor.name}</p>
+            <li className={s.item} key={actor.id}>
+              <img className={s.image} src={actorImgUrl} alt={actor.name} />
+              <div className={s.boxInfoActor}>
+                <p className={s.nameActor}>{actor.name}</p>
+                <span className={s.label}>Character:</span>
+                <span className={s.value}>{actor.character}</span>
+              </div>
             </li>
           );
         })}

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 // import { Link, useRouteMatch } from "react-router-dom";
 import apiService from "../../service/apiService";
+import s from "./Reviews.module.css";
+
 function Reviews({ movieId }) {
   const [reviews, setReviews] = useState(null);
 
@@ -17,9 +19,10 @@ function Reviews({ movieId }) {
       {reviews &&
         reviews.map((review) => {
           return (
-            <li key={review.id}>
-              <p>Author: {review.author}</p>
-              <p>{review.content}</p>
+            <li className={s.item} key={review.id}>
+              <span className={s.label}>Author:</span>
+              <span className={s.value}>{review.author}</span>
+              <p className={s.content}>{review.content}</p>
             </li>
           );
         })}

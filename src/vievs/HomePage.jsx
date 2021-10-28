@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import apiService from "../service/apiService";
+import MovieItems from "../components/MovieItem/MovieItem";
+
+import s from "./HomePage.module.css";
+
 function HomePage() {
   const { url } = useRouteMatch();
   const [movies, setMovies] = useState(null);
@@ -12,15 +16,8 @@ function HomePage() {
   }, []);
   return (
     <div>
-      <h1>Trending today</h1>
-      <ul>
-        {movies &&
-          movies.map((movie) => (
-            <li key={movie.id}>
-              <Link to={`${url}movies/${movie.id}`}>{movie.title}</Link>
-            </li>
-          ))}
-      </ul>
+      <h1 className={s.title}>Trending today</h1>
+      <MovieItems movies={movies} linkUrl={`${url}movies/`} />
     </div>
   );
 }

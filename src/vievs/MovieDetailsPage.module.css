@@ -1,0 +1,68 @@
+.movieCard {
+  position: relative;
+  margin-left: 20px;
+  max-width: 1000px;
+  display: flex;
+}
+
+.boxInfoMovie {
+  margin-left: 40px;
+}
+
+.imageMovie {
+  width: 260px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .imageMovie:hover {
+  border-radius: 5px;
+  transform: scale(1.03);
+  cursor: pointer;
+} */
+
+.titleMovie {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: inherit;
+  margin-bottom: 20px;
+}
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: inherit;
+}
+.value {
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.titleAdditional {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: inherit;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.listAdditional {
+  margin-left: 20px;
+}
+
+.itemAdditional {
+  margin-bottom: 5px;
+}
