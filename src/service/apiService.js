@@ -1,6 +1,5 @@
 const API_KEY = "718e78f3ef5fafb4dacfb741569fec57";
 const BASE_URL = "https://api.themoviedb.org/3";
-// https://api.themoviedb.org/3/trending/movie/day?api_key=718e78f3ef5fafb4dacfb741569fec57&page=1
 
 // список самых популярных фильмов на сегодня для создания коллекции на главной странице
 function fetchTrending(page) {
