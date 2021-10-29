@@ -1,4 +1,4 @@
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 const API_KEY = "718e78f3ef5fafb4dacfb741569fec57";
 const BASE_URL = "https://api.themoviedb.org/3";
 
@@ -79,7 +79,11 @@ function fetchSearchMovie(page, searchQuery) {
           new Error(
             "No movie with this name were found. Please enter a different name. "
           )
-        ).catch((error) => console.log(error));
+          // ).catch((error) => console.log(error));
+        ).catch((error) => {
+          toast.error(error.message);
+          return console.log(error);
+        });
       }
       // console.log(res.results.length);
       return res.results;
