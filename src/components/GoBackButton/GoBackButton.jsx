@@ -1,8 +1,8 @@
 import s from "./GoBackButton.module.css";
 
-function GoBackButton({ goBack }) {
+function GoBackButton({ onGoBack }) {
   return (
-    <button className={s.button} onClick={goBack}>
+    <button type="button" className={s.button} onClick={onGoBack}>
       Go Back
     </button>
   );

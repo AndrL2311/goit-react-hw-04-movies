@@ -4,7 +4,7 @@ import apiService from "../../service/apiService";
 import s from "./Cast.module.css";
 
 function Cast({ movieId }) {
-  const [cast, setCast] = useState(null);
+  const [cast, setCast] = useState([]);
 
   useEffect(() => {
     apiService.fetchMovieCredits(movieId).then((card) => {
@@ -12,7 +12,7 @@ function Cast({ movieId }) {
     });
   }, [movieId]);
 
-  console.log(cast);
+  // console.log(cast);
 
   return (
     <ul>
