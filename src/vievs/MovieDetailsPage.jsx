@@ -77,10 +77,24 @@ function MovieDetailsPage() {
       <p className={s.titleAdditional}>Additional information</p>
       <ul className={s.listAdditional}>
         <li className={s.itemAdditional}>
-          <NavLink to={`${url}/cast`}>Cast</NavLink>
+          <NavLink
+            to={{
+              pathname: `${url}/cast`,
+              state: { from: location?.state?.from },
+            }}
+          >
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to={`${url}/reviews`}>Reviews</NavLink>
+          <NavLink
+            to={{
+              pathname: `${url}/reviews`,
+              state: { from: location?.state?.from },
+            }}
+          >
+            Reviews
+          </NavLink>
         </li>
       </ul>
 

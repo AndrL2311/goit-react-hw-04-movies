@@ -7,25 +7,16 @@ function fetchTrending(page) {
   // console.log('page', page);
   const url = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`;
   return fetch(url)
-    .then((res) => {
-      // console.log(res);
-      if (res.ok) {
-        return res.json();
+    .then((r) => {
+      if (r.ok) {
+        return r.json();
       }
-
       return Promise.reject(new Error("Something went wrong "));
     })
-    .then((res) => {
-      if (res.results.length === 0) {
-        return Promise.reject(
-          new Error(
-            "No movie with this name were found. Please enter a different name. "
-          )
-        ).catch((error) => console.log(error));
-      }
-      // console.log(res.results.length);
-      return res.results;
-    });
+    .then((data) => {
+      return data.results;
+    })
+    .catch((error) => console.log(error));
 }
 
 // запрос полной информации о фильме для страницы кинофильма
@@ -49,6 +40,7 @@ function fetchMovieCredits(movieId) {
     })
     .catch((error) => console.log(error));
 }
+
 // запрос обзоров для страницы кинофильма
 function fetchMovieReviews(movieId) {
   return fetch(
@@ -60,6 +52,7 @@ function fetchMovieReviews(movieId) {
     })
     .catch((error) => console.log(error));
 }
+
 // поиск кинофильма по ключевому слову на странице фильмов
 function fetchSearchMovie(page, searchQuery) {
   // console.log('page', page);
@@ -79,7 +72,6 @@ function fetchSearchMovie(page, searchQuery) {
           new Error(
             "No movie with this name were found. Please enter a different name. "
           )
-          // ).catch((error) => console.log(error));
         ).catch((error) => {
           toast.error(error.message);
           return console.log(error);

@@ -26,17 +26,13 @@ function MoviesPage() {
     history.push({ ...location, search: `query=${imageName}` });
   };
   // console.log(url);
-  console.log("movies", movies);
+  // console.log("movies", movies);
   // console.log(queryName);
 
   return (
     <div>
       <Searchbar onSubmit={formSubmitHandler} />
-      {movies ? (
-        <MovieItems movies={movies} linkUrl={`${url}/`} />
-      ) : (
-        console.log("error")
-      )}
+      {movies && <MovieItems movies={movies} linkUrl={`${url}/`} />}
     </div>
   );
 }
