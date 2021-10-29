@@ -1,3 +1,4 @@
+// import { toast } from "react-toastify";
 const API_KEY = "718e78f3ef5fafb4dacfb741569fec57";
 const BASE_URL = "https://api.themoviedb.org/3";
 

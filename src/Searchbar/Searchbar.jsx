@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import s from "./Searchbar.module.css";
 
@@ -12,8 +12,8 @@ function Searchbar({ onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (movieName.trim() === "") {
-      console.log("Enter movie name.");
-      // toast.error("Enter image name.");
+      // console.log("Enter movie name.");
+      toast.error("Enter movie name.");
       return;
     }
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouteMatch, useHistory, useLocation } from "react-router-dom";
+// import { toast } from "react-toastify";
 import Searchbar from "../Searchbar/Searchbar";
 import apiService from "../service/apiService";
 import MovieItems from "../components/MovieItem/MovieItem";
@@ -25,13 +26,17 @@ function MoviesPage() {
     history.push({ ...location, search: `query=${imageName}` });
   };
   // console.log(url);
-  // console.log(movies);
+  console.log("movies", movies);
   // console.log(queryName);
 
   return (
     <div>
       <Searchbar onSubmit={formSubmitHandler} />
-      <MovieItems movies={movies} linkUrl={`${url}/`} />
+      {movies ? (
+        <MovieItems movies={movies} linkUrl={`${url}/`} />
+      ) : (
+        console.log("error")
+      )}
     </div>
   );
 }

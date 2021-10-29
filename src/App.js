@@ -1,5 +1,8 @@
 import { Switch, Route } from "react-router-dom";
 import AppBar from "./components/AppBar/AppBar";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import HomePage from "./vievs/HomePage";
 import MoviesPage from "./vievs/MoviesPage";
 import MovieDetailsPage from "./vievs/MovieDetailsPage";
@@ -26,6 +29,7 @@ function App() {
           <HomePage />
         </Route>
       </Switch>
+      <ToastContainer autoClose={3000} theme={"colored"} />
     </div>
   );
 }
