@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouteMatch, useHistory, useLocation } from "react-router-dom";
-// import { toast } from "react-toastify";
+
 import Searchbar from "../Searchbar/Searchbar";
 import apiService from "../service/apiService";
 import MovieItems from "../components/MovieItem/MovieItem";
-// import s from './MoviesPage.module.css';
 
 function MoviesPage() {
-  // const [movieName, setMovieName] = useState("");
   const [movies, setMovies] = useState(null);
   const { url } = useRouteMatch();
   const history = useHistory();
@@ -22,7 +20,6 @@ function MoviesPage() {
   }, [queryName]);
 
   const formSubmitHandler = (imageName) => {
-    // setMovieName(imageName);
     history.push({ ...location, search: `query=${imageName}` });
   };
   // console.log(url);
